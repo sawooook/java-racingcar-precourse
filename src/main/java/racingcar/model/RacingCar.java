@@ -1,22 +1,21 @@
 package racingcar.model;
 
 
+import racingcar.common.strategy.NumberStrategy;
+
 import java.util.List;
 
 public class RacingCar {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public RacingCar(List<Car> cars) {
         this.cars = cars;
     }
 
-    public List<Car> getCarList() {
-        return cars;
+    public void start(NumberStrategy strategy) {
+        for (Car car : cars) {
+            car.race(strategy.generate());
+        }
     }
-
-    public Car getCarByIndex(int index) {
-        return cars.get(index);
-    }
-
 }

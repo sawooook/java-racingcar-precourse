@@ -2,6 +2,7 @@ package racingcar.model;
 
 
 import racingcar.common.SplitUtil;
+import racingcar.common.strategy.NumberStrategy;
 
 import java.util.List;
 
@@ -17,10 +18,9 @@ public class RacingGame {
         this.racingCount = racingCount;
     }
 
-    public void start() {
+    public void start(NumberStrategy strategy) {
         while (progressRacingCount != racingCount) {
-            for (Car car : cars) {
-            }
+            new RacingCar(cars).start(strategy);
             progressRacingCount += 1;
         }
     }
