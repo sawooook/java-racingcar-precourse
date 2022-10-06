@@ -13,5 +13,6 @@ public class RacingGame {
 
     public void start() {
         String carName = new InputView().getCarName();
+        String racingCount = new InputView().getRacingCount();
     }
 }
