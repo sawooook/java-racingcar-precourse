@@ -7,6 +7,7 @@ import racingcar.model.enums.ErrorType;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.common.Constants.INIT_MOVE_COUNT;
 
 class CarTest {
 
@@ -16,7 +17,7 @@ class CarTest {
         String carName = "자동차생성";
         int carMove = 0;
 
-        Car car = Car.participate(carName);
+        Car car = Car.participate(carName, carMove);
 
         assertEquals(car.getName(), carName);
         assertEquals(car.getMove(), carMove);
@@ -28,7 +29,7 @@ class CarTest {
         String carName = "자동차생성실패";
 
         assertThatThrownBy(() -> {
-            Car.participate(carName);
+            Car.participate(carName, INIT_MOVE_COUNT);
                 }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorType.INVALID_INPUT_CAR_NAME.getMessage());
     }
@@ -39,7 +40,7 @@ class CarTest {
         String carName = "";
 
         assertThatThrownBy(() -> {
-            Car.participate(carName);
+            Car.participate(carName, INIT_MOVE_COUNT);
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorType.INVALID_INPUT_CAR_NAME.getMessage());
     }
@@ -47,7 +48,7 @@ class CarTest {
     @Test
     @DisplayName("랜덤값이 5보다 크면 move +1 한다.")
     void raceMove() {
-        Car car = Car.participate("테스트");
+        Car car = Car.participate("테스트", INIT_MOVE_COUNT);
         car.race(5);
 
         int move = car.getMove();
@@ -57,7 +58,7 @@ class CarTest {
     @Test
     @DisplayName("랜덤값이 4보다 작으면 움직이지 않는다.")
     void raceStop() {
-        Car car = Car.participate("테스트");
+        Car car = Car.participate("테스트", INIT_MOVE_COUNT);
         car.race(3);
 
         int move = car.getMove();

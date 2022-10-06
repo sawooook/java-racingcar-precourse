@@ -48,7 +48,6 @@ public class RacingCar {
 
     private int changeMaxMove(int maxMove, Car car) {
         if (car.move().isMaxMove(maxMove)) {
-
             return car.getMove();
         }
 

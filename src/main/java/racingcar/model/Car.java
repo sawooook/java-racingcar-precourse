@@ -28,7 +28,7 @@ public class Car {
         return move;
     }
 
-    public static Car participate(String inputName) {
-        return new Car(new CarName(inputName), new CarMove(INIT_MOVE_COUNT));
+    public static Car participate(String inputName, int moveCount) {
+        return new Car(new CarName(inputName), new CarMove(moveCount));
     }
 }
