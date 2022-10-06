@@ -19,4 +19,8 @@ public class CarMove {
             this.move += WIN_MOVE_NUMBER;
         }
     }
+
+    public Boolean isMaxMove(int maxMove) {
+        return this.move == maxMove;
+    }
 }

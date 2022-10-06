@@ -23,11 +23,35 @@ public class RacingCar {
 
     public List<RacingResult> getResult() {
         List<RacingResult> result = new ArrayList<>();
+        int maxMove = getMaxMove(cars);
 
         for (Car car : cars) {
-            result.add(new RacingResult(car.getName(), car.getMove()));
+            result.add(new RacingResult(car.getName(), car.getMove(), isWinner(maxMove, car.move())));
         }
 
         return result;
+    }
+
+    private boolean isWinner(int maxMove, CarMove move) {
+        return maxMove == move.getMove();
+    }
+
+    private int getMaxMove(List<Car> cars) {
+        int maxMove = 0;
+
+        for (Car car : cars) {
+            maxMove = changeMaxMove(maxMove, car);
+        }
+
+        return maxMove;
+    }
+
+    private int changeMaxMove(int maxMove, Car car) {
+        if (car.move().isMaxMove(maxMove)) {
+
+            return car.getMove();
+        }
+
+        return maxMove;
     }
 }

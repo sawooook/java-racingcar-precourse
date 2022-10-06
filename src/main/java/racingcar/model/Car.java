@@ -24,6 +24,10 @@ public class Car {
         return move.getMove();
     }
 
+    public CarMove move() {
+        return move;
+    }
+
     public static Car participate(String inputName) {
         return new Car(new CarName(inputName), new CarMove(INIT_MOVE_COUNT));
     }
