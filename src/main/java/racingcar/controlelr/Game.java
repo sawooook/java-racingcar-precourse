@@ -5,6 +5,7 @@ import racingcar.common.strategy.RandomNumber;
 import racingcar.model.RacingGame;
 import racingcar.model.dto.RacingResult;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -15,5 +16,13 @@ public class Game {
         int racingCount = new InputView().getRacingCount();
         List<RacingResult> result = new RacingGame(carName, racingCount).start(new RandomNumber());
 
+        OutputView.endGame();
+        printRacingResult(result);
+    }
+
+    private void printRacingResult(List<RacingResult> racingResult) {
+        for (RacingResult result : racingResult) {
+            OutputView.gameResult(result);
+        }
     }
 }
