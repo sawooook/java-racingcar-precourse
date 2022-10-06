@@ -1,9 +1,10 @@
 package racingcar;
 
-import racingcar.controlelr.RacingGame;
+import racingcar.controlelr.Game;
+import racingcar.model.RacingGame;
 
 public class Application {
     public static void main(String[] args) {
-        new RacingGame().start();
+        new Game().init();
     }
 }

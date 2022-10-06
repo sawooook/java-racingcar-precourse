@@ -3,11 +3,11 @@ package racingcar.model;
 
 import java.util.List;
 
-public class RacingCarList {
+public class RacingCar {
 
-    private final List<Car> cars;
+    private List<Car> cars;
 
-    public RacingCarList(List<Car> cars) {
+    public RacingCar(List<Car> cars) {
         this.cars = cars;
     }
 
@@ -18,4 +18,5 @@ public class RacingCarList {
     public Car getCarByIndex(int index) {
         return cars.get(index);
     }
+
 }
