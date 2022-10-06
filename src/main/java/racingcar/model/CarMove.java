@@ -21,6 +21,6 @@ public class CarMove {
     }
 
     public Boolean isMaxMove(int maxMove) {
-        return this.move == maxMove;
+        return this.move > maxMove;
     }
 }
