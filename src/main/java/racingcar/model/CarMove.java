@@ -15,7 +15,7 @@ public class CarMove {
     }
 
     public void updateMoveIfWin(int number) {
-        if (number > WIN_BOUNDARY_NUMBER) {
+        if (number >= WIN_BOUNDARY_NUMBER) {
             this.move += WIN_MOVE_NUMBER;
         }
     }

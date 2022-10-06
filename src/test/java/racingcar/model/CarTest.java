@@ -55,10 +55,10 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("랜덤값이 5보다 작으면 움직이지 않는다.")
+    @DisplayName("랜덤값이 4보다 작으면 움직이지 않는다.")
     void raceStop() {
         Car car = Car.participate("테스트");
-        car.race(4);
+        car.race(3);
 
         int move = car.getMove();
         assertEquals(move, 0);
