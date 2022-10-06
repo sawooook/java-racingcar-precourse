@@ -12,6 +12,10 @@ public class Car {
         this.move = move;
     }
 
+    public void race(int randomNumber) {
+        this.move.updateMoveIfWin(randomNumber);
+    }
+
     public String getName() {
         return name.getName();
     }
