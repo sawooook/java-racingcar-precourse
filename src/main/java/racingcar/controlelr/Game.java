@@ -12,14 +12,24 @@ import java.util.List;
 public class Game {
 
     public void init() {
-        String carName = new InputView().getCarName();
-        int racingCount = new InputView().getRacingCount();
-        List<RacingResult> result = new RacingGame(carName, racingCount).start(new RandomNumber());
-
+        RacingGame participant = inputCarName();
+        List<RacingResult> result = participant.start(new RandomNumber(), new InputView().getRacingCount());
 
         OutputView.endGame();
         printRacingResult(result);
         printWinner(result);
+    }
+
+    private RacingGame inputCarName() {
+        try {
+            String carName = new InputView().getCarName();
+            return new RacingGame(carName);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            inputCarName();
+        }
+
+        return null;
     }
 
     private void printWinner(List<RacingResult> result) {

@@ -10,16 +10,14 @@ import java.util.List;
 public class RacingGame {
 
     private final List<Car> cars;
-    private final int racingCount;
 
     private int progressRacingCount = 0;
 
-    public RacingGame(String carName, int racingCount) {
+    public RacingGame(String carName) {
         this.cars = carParticipate(carName);
-        this.racingCount = racingCount;
     }
 
-    public List<RacingResult> start(NumberStrategy strategy) {
+    public List<RacingResult> start(NumberStrategy strategy, int racingCount) {
         while (progressRacingCount != racingCount) {
             new RacingCar(cars).start(strategy);
             progressRacingCount += 1;
