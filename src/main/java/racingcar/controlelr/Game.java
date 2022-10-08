@@ -1,6 +1,9 @@
 package racingcar.controlelr;
 
+import racingcar.common.SplitUtil;
 import racingcar.common.strategy.RandomNumber;
+import racingcar.model.Car;
+import racingcar.model.Participate;
 import racingcar.model.RacingGame;
 import racingcar.model.dto.RacingResult;
 import racingcar.view.InputView;
@@ -12,18 +15,19 @@ import java.util.List;
 public class Game {
 
     public void init() {
-        RacingGame participant = inputCarName();
-        List<RacingResult> result = participant.start(new RandomNumber(), new InputView().getRacingCount());
+        List<Car> participant = inputCarName();
+
+        List<RacingResult> result = new RacingGame(participant)
+                .start(new RandomNumber(), new InputView().getRacingCount());
 
         OutputView.endGame();
         printRacingResult(result);
         printWinner(result);
     }
 
-    private RacingGame inputCarName() {
+    private List<Car> inputCarName() {
         try {
-            String carName = new InputView().getCarName();
-            return new RacingGame(carName);
+            return new Participate().addCar(SplitUtil.carSplit(new InputView().getCarName()));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             inputCarName();

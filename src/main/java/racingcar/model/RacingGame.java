@@ -13,8 +13,8 @@ public class RacingGame {
 
     private int progressRacingCount = 0;
 
-    public RacingGame(String carName) {
-        this.cars = carParticipate(carName);
+    public RacingGame(List<Car> cars) {
+        this.cars = cars;
     }
 
     public List<RacingResult> start(NumberStrategy strategy, int racingCount) {
@@ -24,9 +24,5 @@ public class RacingGame {
         }
 
         return new RacingCar(cars).getResult();
-    }
-
-    private List<Car> carParticipate(String carName) {
-        return new Participate().addCar(SplitUtil.carSplit(carName));
     }
 }

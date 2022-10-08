@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import static racingcar.common.Constants.INIT_MOVE_COUNT;
-
 public class Car {
     private final CarName name;
     private final CarMove move;

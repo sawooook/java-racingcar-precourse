@@ -53,4 +53,8 @@ public class RacingCar {
 
         return maxMove;
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
