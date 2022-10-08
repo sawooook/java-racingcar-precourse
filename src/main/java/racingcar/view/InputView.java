@@ -9,8 +9,8 @@ public class InputView {
         return Console.readLine();
     }
 
-    public String getRacingCount() {
+    public int getRacingCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Console.readLine();
+        return Integer.parseInt(Console.readLine());
     }
 }
