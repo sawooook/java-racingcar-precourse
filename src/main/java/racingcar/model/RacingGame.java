@@ -7,6 +7,8 @@ import racingcar.model.dto.RacingResult;
 
 import java.util.List;
 
+import static racingcar.common.Constants.UP_RACING_MOVE_COUNT;
+
 public class RacingGame {
 
     private final List<Car> cars;
@@ -20,7 +22,7 @@ public class RacingGame {
     public List<RacingResult> start(NumberStrategy strategy, int racingCount) {
         while (progressRacingCount != racingCount) {
             new RacingCar(cars).start(strategy);
-            progressRacingCount += 1;
+            progressRacingCount += UP_RACING_MOVE_COUNT;
         }
 
         return new RacingCar(cars).getResult();
